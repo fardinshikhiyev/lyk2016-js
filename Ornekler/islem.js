@@ -1,7 +1,7 @@
-function islem(x, tip, y) {
+function islem(x, islem, y) {
   var z = parseInt(x);
   var t = parseInt(y);
-  switch (tip) {
+  switch (islem) {
     case "+":
       return z + t;
     case "-":
@@ -14,10 +14,10 @@ function islem(x, tip, y) {
 }
 
 var x = prompt("x");
-var i = prompt("Islem");
+var islem = prompt("Islem");
 var y = prompt("y");
 
-var sonuc = islem(x, i, y);
+var sonuc = islem(x, islem, y);
 
 alert(sonuc);
 
