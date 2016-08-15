@@ -1,0 +1,8 @@
+$.ajax({
+  url: 'http://jsonplaceholder.typicode.com/todos?userId=1',
+  method: 'GET'
+}).done(function(data) {
+  console.log(data);
+}).fail(function(err) {
+  console.log(err);
+})
