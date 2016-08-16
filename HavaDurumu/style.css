@@ -1,0 +1,25 @@
+#select {
+  width: 400px;
+  margin: 20px auto 0;
+  padding: 20px;
+  text-align: center;
+  background-color: #bdc3c7; 
+}
+
+#weather {
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #ecf0f1;
+  color: #444;
+}
+
+.warning {
+  color: #c0392b;
+  font-size: 22px;
+}
+
+.degree {
+  font-size: 28px;
+}
