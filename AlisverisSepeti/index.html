@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="basket">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/4.1.1/normalize.css">  
+  <link rel="stylesheet" href="style.css">  
+</head>
+<body ng-controller="BasketController">
+  <div class="container">
+    <div class="product-list">
+      <h2>Ürünler</h2>
+      <ul>
+        <li ng-repeat="product in products track by $index">
+          <button ng-click="addBasket(product)">+</button>
+          {{ product.name }}
+          <span> {{ product.price }} TRY </span>
+        </li>
+      </ul>
+    </div>
+    <div class="basket">
+      <h2>Sepet {{total()}} TRY</h2>
+      <ul>
+        <li ng-repeat="product in basket track by $index">
+          <button ng-click="clear($index)">-</button>
+          {{ product.name }}
+          <span> {{ product.price }} TRY </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
