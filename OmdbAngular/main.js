@@ -1,4 +1,12 @@
-angular.module('app', [])
+angular.module('app', ['ngRoute'])
+
+.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.html",
+				controller:  "AppController"
+    })
+})
 
 .controller('AppController', function ($scope, movieService) {
 	$scope.query = "";

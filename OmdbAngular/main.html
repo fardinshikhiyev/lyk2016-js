@@ -1,0 +1,16 @@
+<header>
+	<input class="search-box" type="text" ng-model="query" ng-keydown="$event.which === 13 && search()" autofocus>
+	<button class="search-button" ng-click="search()">ara!</button>
+</header>
+
+<section class="container">
+	<ul class="movie-list">
+		<li ng-repeat="movie in movies.Search">
+			<img ng-if="movie.Poster != 'N/A'" ng-src="{{movie.Poster}}" />
+			<img ng-if="movie.Poster == 'N/A'" src="img/not-found.png" />
+			<h2>{{ movie.Title }}</h2>
+		</li>
+	</ul>
+	<h2 class="not-found" ng-if="movies.Response == 'False'">Sonuç Bulunamadı.</h2>
+</section>
+
