@@ -6,15 +6,33 @@ angular.module('app', ['ngRoute'])
         templateUrl : "main.html",
 				controller:  "AppController"
     })
+	.when("/detail/:id", {
+			templateUrl: "detail.html",
+			controller: "DetailController"
+		})
 })
 
-.controller('AppController', function ($scope, movieService) {
+.controller('DetailController', function($scope, $routeParams, movieService) {
+	var imdbID = $routeParams.id;
+
+  movieService.getDetail(imdbID).then(function(data) {
+    $scope.details = data;
+    console.log(data);
+  });
+
+})
+
+.controller('AppController', function ($scope, movieService, $location) {
 	$scope.query = "";
 
 	$scope.search = function () {
 		movieService.getMovies($scope.query).then(function(data) {
 			$scope.movies = data;
 		});
+	}
+
+	$scope.openDetail = function (id) {
+		$location.path('/detail/' + id)
 	}
 })
 
@@ -27,7 +45,17 @@ angular.module('app', ['ngRoute'])
 		});
 	}
 
+  var getDetail = function(imdbID) {
+    return $http.get('http://www.omdbapi.com/?i=' + imdbID + '&plot=short&r=json')
+    .then(function (response) {
+      return response.data;
+    }, function (err) {
+      console.log(err);
+    });
+  }
+
 	return {
-		getMovies: getMovies
+		getMovies: getMovies,
+    getDetail: getDetail
 	}
 });

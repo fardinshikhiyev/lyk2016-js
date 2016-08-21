@@ -5,7 +5,7 @@
 
 <section class="container">
 	<ul class="movie-list">
-		<li ng-repeat="movie in movies.Search">
+		<li ng-repeat="movie in movies.Search" ng-click="openDetail(movie.imdbID)">
 			<img ng-if="movie.Poster != 'N/A'" ng-src="{{movie.Poster}}" />
 			<img ng-if="movie.Poster == 'N/A'" src="img/not-found.png" />
 			<h2>{{ movie.Title }}</h2>
